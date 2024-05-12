@@ -60,6 +60,22 @@ function Navbar() {
               className="list-style-none ms-auto lg:me-2 max-lg:mb-5 flex flex-col gap-y-2 ps-0 lg:flex-row"
               data-twe-navbar-nav-ref=""
             >
+              <Link
+                to="/"
+                type="button"
+                data-twe-ripple-color="light"
+                className="me-3 inline-block rounded px-4 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
+              >
+                Home
+              </Link>
+              <Link
+                to="/about-us"
+                type="button"
+                data-twe-ripple-color="light"
+                className="me-3 inline-block rounded px-4 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
+              >
+                About Us
+              </Link>
               {!Boolean(userInfo.email) ? (
                 <>
                   <Link
@@ -67,7 +83,7 @@ function Navbar() {
                     type="button"
                     data-twe-ripple-init=""
                     data-twe-ripple-color="light"
-                    className="me-3 inline-block rounded px-2 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
+                    className="me-3 inline-block rounded px-4 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
                   >
                     Login
                   </Link>
@@ -77,22 +93,21 @@ function Navbar() {
                     type="button"
                     data-twe-ripple-init=""
                     data-twe-ripple-color="light"
-                    className="me-3 inline-block rounded bg-dark-main px-2 lg:px-6  pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black"
+                    className="me-3 inline-block rounded bg-dark-main px-4 lg:px-6  pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black"
                   >
                     Sign up for free
                   </Link>
                 </>
               ) : (
-                <>
-                  <Link
-                    to="/home"
-                    type="button"
-                    data-twe-ripple-color="light"
-                    className="me-3 inline-block rounded px-2 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
-                  >
-                    Home
-                  </Link>
-                </>
+                <Link
+                  to="/contact-us"
+                  type="button"
+                  data-twe-ripple-init=""
+                  data-twe-ripple-color="light"
+                  className="me-3 inline-block rounded px-4 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white hover:text-black dark:text-white dark:hover:bg-dark-main transition duration-150 ease-in-out"
+                >
+                  Contact Us
+                </Link>
               )}
             </ul>
           </div>
@@ -144,15 +159,14 @@ function Navbar() {
                     data-twe-dropdown-menu-ref=""
                   >
                     {/* Second dropdown menu items */}
-                    <li>
-                    </li>
+                    <li></li>
                     <li>
                       <Link
-                        to={`blogs/?user=${userInfo._id}`}
+                        to={`profile/${userInfo._id}`}
                         className="profile-menu-item"
                         data-twe-dropdown-item-ref=""
                       >
-                        My Blogs
+                        Profile
                       </Link>
                     </li>
                     <li>

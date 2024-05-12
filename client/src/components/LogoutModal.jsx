@@ -16,7 +16,7 @@ export default function LogoutModal() {
             .then(response => {
                 if (response.status === 200) {
                     setUserInfo({});
-                    navigate("/");
+                    navigate("/login");
                     toast.success("Logout successful.")
                 }
             })

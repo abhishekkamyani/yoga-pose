@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useParams } from "react-router-dom";
 
 const poses = [
   {
@@ -15,6 +16,11 @@ const poses = [
   },
 ];
 export default function Module() {
+  const { name } = useParams();
+  window.scrollTo({
+    top: 0,
+  });
+
   const imageRef = useRef(null);
   const handleChange = (e) => {
     const selectElement = e.target;
@@ -24,10 +30,14 @@ export default function Module() {
     imageRef.current.src = dataSrcValue;
   };
   return (
-    <section className="container xs:px-5 mx-auto">
+    <section className="container xs:px-5 mx-auto min-h-screen">
       <div className="w-full md:w-1/2 mx-auto pt-5">
         <div className="flex flex-col items-center text-black dark:text-main">
-          <h1 className="heading-1">Yoga Pose CNN Classifier</h1>
+          <h1 className="heading-1">
+            {name === "classifier"
+              ? "Yoga Pose CNN Classifier"
+              : "Yoga Pose Correction System"}
+          </h1>
           <h3 className="py-10 capitalize">
             Please select a pose for practice
           </h3>
@@ -54,8 +64,8 @@ export default function Module() {
           <div className="w-full">
             <img
               ref={imageRef}
-              src="../images/tree_pose.jpeg"
-              alt="pose"
+              // src="../images/tree_pose.jpeg"
+              alt="Please select a pose"
               className="my-5 w-full bg-center bg-cover bg-no-repeat border border-black rounded"
             />
           </div>
