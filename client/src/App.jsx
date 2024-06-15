@@ -10,6 +10,7 @@ import Module from "./pages/Module";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 
 export default function App() {  
@@ -20,14 +21,13 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          {/* <Route exact path="/temp" element={<Temp />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/account-settings" element={<AccountSettings />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/module/:name" element={<Module />} />
+          <Route path="/module/correct-system" element={<Module />} />
           <Route path="/about-us" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/contact-us" element={<ProtectedRoute component={<Contact />} />} />
         </Routes>
         <Footer />
       </Router>

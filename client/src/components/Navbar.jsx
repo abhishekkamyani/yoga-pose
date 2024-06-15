@@ -47,7 +47,7 @@ function Navbar() {
             className="lg:ms-2 flex gap-x-3 items-center text-white text-2xl transition duration-200 hover:text-black/80 hover:ease-in-out motion-reduce:transition-none  dark:hover:text-white/80 lg:mb-0 lg:mt-0"
             href="/"
           >
-            <img src="/images/yoga_logo_rm_bg.png" width={30} alt="" />
+            <img src="/images/yoga-logo.png" width={30} alt="" />
             Yoga Pose
           </a>
           {/* Collapsible navigation container */}
