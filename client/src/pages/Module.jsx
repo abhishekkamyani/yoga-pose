@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Camera from "../components/Camera";
 import { SelectButton } from "primereact/selectbutton";
-import { useUserInfo } from "../contexts/UserContext";
-import { useNavigate } from "react-router-dom";
 
 const poses = [
   {
@@ -19,10 +17,7 @@ const poses = [
   },
 ];
 export default function Module() {
-  const { userInfo } = useUserInfo();
-  const navigate = useNavigate();
 
-  console.log(userInfo);
 
   useEffect(() => {
     let ignore = false;
@@ -32,9 +27,6 @@ export default function Module() {
         top: 0,
       });
 
-      if (!userInfo.email) {
-        navigate("/login");
-      }
     }
 
     return () => {

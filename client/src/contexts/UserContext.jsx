@@ -7,7 +7,7 @@ const UserContext = createContext({});
 export function UserContextProvider({ children }) {
   const [userInfo, setUserInfo] = useState({ _id: "" });
   const [isFetched, setIsFetched] = useState(false);
-  //console.log(userInfo);
+  const isAuthenticated = userInfo.email ? true : false;
 
   useEffect(() => {
     console.log("identity");
@@ -52,7 +52,7 @@ export function UserContextProvider({ children }) {
     return <div></div>;
   }
   return (
-    <UserContext.Provider value={{ userInfo, setUserInfo, resetUserInfo }}>
+    <UserContext.Provider value={{ userInfo, setUserInfo, resetUserInfo, isAuthenticated }}>
       {children}
     </UserContext.Provider>
   );
